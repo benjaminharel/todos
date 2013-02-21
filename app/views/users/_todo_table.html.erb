@@ -1,0 +1,37 @@
+
+<table id="todos_table">
+  <Tr><td><p id="error"><%= flash[:error] %></p></td></Tr>
+  <Tr><td><p id="notice"><%= flash[:notice] %></p></td></Tr>
+
+  <tr>
+    <th>Order</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Due date</th>
+    <th>Checked</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @user.todos.order(:position).each do |todo| %>
+      <tr>
+        <td><%= todo.position %></td>
+        <td><%= todo.title %></td>
+        <td><%= todo.description %></td>
+        <td><%= todo.due_date %></td>
+        <td><%= todo.checked %></td>
+        <td><%= todo.user_id %></td>
+        <td><%= link_to 'Edit', edit_user_todo_path(@user, todo), :remote => true %></td>
+        <td><%= link_to 'Destroy', user_todo_path(@user, todo), method: :delete, :remote => true, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Move up', move_up_path(:todo_id => todo), :remote => true %></td>
+        <td><%= link_to 'Move down', move_down_path(:todo_id => todo), :remote => true %></td>
+      </tr>
+  <% end %>
+  <tr><td colspan=10>
+    <%= link_to 'New', new_user_todo_path(@user), :remote => true %>
+    <div id="edit_todo">
+    </div>
+  </td></tr>
+</table>

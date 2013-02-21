@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>  |  <%= link_to "Logout", logout_path %>
+</p>
+
+<%= render :partial => 'todo_table' %>
