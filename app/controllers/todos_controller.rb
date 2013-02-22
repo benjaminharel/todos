@@ -20,6 +20,7 @@ class TodosController < ApplicationController
     rescue
       flash[:error] = "Title is empty"
     end
+    render :action => :update
   end
 
   def update
@@ -30,7 +31,6 @@ class TodosController < ApplicationController
     rescue
       flash[:error] = "Title is empty"
     end
-    render :action => :create
   end
 
   def destroy

@@ -9,7 +9,6 @@
     <th>Description</th>
     <th>Due date</th>
     <th>Checked</th>
-    <th>User</th>
     <th></th>
     <th></th>
     <th></th>
@@ -21,8 +20,7 @@
         <td><%= todo.title %></td>
         <td><%= todo.description %></td>
         <td><%= todo.due_date %></td>
-        <td><%= todo.checked %></td>
-        <td><%= todo.user_id %></td>
+        <td><%= todo.checked ? "V" : "X" %></td>
         <td><%= link_to 'Edit', edit_user_todo_path(@user, todo), :remote => true %></td>
         <td><%= link_to 'Destroy', user_todo_path(@user, todo), method: :delete, :remote => true, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Move up', move_up_path(:todo_id => todo), :remote => true %></td>
