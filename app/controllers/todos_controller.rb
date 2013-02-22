@@ -34,19 +34,22 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    @todo = @user.todos.find(params[:id])
-    @todo.destroy
-    flash[:notice] = "Todo was deleted"
-    render :action => :create
+    begin
+      @user.todos.find(params[:id]).destroy
+      flash[:notice] = "Todo was deleted"
+    rescue
+      flash[:error] = "Can't delete todo"
+    end
+    render :action => :update
   end
 
   def move_up
     @user.todos.find(params[:todo_id]).move_higher
-    render :action => :create
+    render :action => :update
   end
 
   def move_down
     @user.todos.find(params[:todo_id]).move_lower
-    render :action => :create
+    render :action => :update
   end
 end

@@ -39,7 +39,8 @@ gem 'capistrano'
 
 
 group :test, :development do
-  gem "rspec-rails", "~> 2.0"
+  gem 'rspec'
+  gem 'rspec-rails'
 end
 
 gem 'acts_as_list'
