@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_filter :auth, :only => [:new, :create]
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(session[:user])
   end
 
   def new
