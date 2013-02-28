@@ -14,7 +14,7 @@
     <th></th>
   </tr>
 
-  <% @user.todos.order(:position).each do |todo| %>
+  <% @user.todos.each do |todo| %>
       <tr>
         <td><%= todo.position %></td>
         <td><%= todo.title %></td>

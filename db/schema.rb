@@ -14,15 +14,14 @@
 ActiveRecord::Schema.define(:version => 20130221130028) do
 
   create_table "todos", :force => true do |t|
-    t.integer  "position",     :default => 0
+    t.integer  "position",    :default => 0
     t.string   "title"
     t.text     "description"
-    t.date     "due_date",     :default => '2013-03-21'
-    t.boolean  "checked",      :default => false
-    t.integer  "todo_list_id"
+    t.date     "due_date",    :default => '2013-03-28'
+    t.boolean  "checked",     :default => false
     t.integer  "user_id"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
   end
 
   create_table "users", :force => true do |t|
